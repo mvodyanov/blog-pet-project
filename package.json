@@ -1,8 +1,8 @@
 {
   "name": "ulbi_project",
   "version": "1.0.0",
-  "description": "Версия Node.js - 17.4.0 Версия npm  - 8.5.1",
-  "main": "index.js",
+  "description": "",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

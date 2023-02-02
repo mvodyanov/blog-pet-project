@@ -1,4 +1,4 @@
-## About 
+# About 
 This template project contains a lot of different modern frontend technologies. 
 Such as 
 - webpack 5 (config)
@@ -6,8 +6,6 @@ Such as
 
 Inspired by UbliTV
 
-# Requirements
+### Requirements
 Node.js - 17.4.0
 npm  - 8.5.1
-
-#
