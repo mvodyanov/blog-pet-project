@@ -6,7 +6,6 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
-    "baseUrl": ".",
     "moduleResolution": "node",
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js
