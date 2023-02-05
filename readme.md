@@ -7,7 +7,8 @@ Such as
 - react 17 
 - scss 
 
-Inspired by UbliTV
+### Architecture 
+This project uses Feature-Sliced Design 
 
 ### Requirements
 Node.js - 17.4.0
