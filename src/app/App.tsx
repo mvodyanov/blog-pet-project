@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { useTheme } from "app/providers/ThemeProvider";
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -7,16 +5,18 @@ import { Navbar } from "widget/Navbar";
 import { AppRouter } from "app/providers/router";
 
 import "./styles/index.scss";
-import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/ThemeSwitcher";
+import { Sidebar } from "widget/Sidebar";
 
 export const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={classNames("app", { myClassname: true }, [theme])}>
+    <div className={classNames("app", {}, [theme])}>
       <Navbar />
-      <AppRouter />
-      <ThemeSwitcher/>
+      <div className="content-page">
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   );
 };
