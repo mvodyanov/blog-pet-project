@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 
 import Style from "./Navbar.module.scss";
 
@@ -12,10 +12,10 @@ export const Navbar = (props: NavbarProps) => {
   return (
     <div className={classNames(Style.navbar, {}, [className])}>
       <div className={Style.links}>
-        <Link to="/" className={Style.mainLink}>
+        <AppLink to="/" className={Style.mainLink}>
           Main
-        </Link>
-        <Link to="/about">About</Link>
+        </AppLink>
+        <AppLink to="/about">About</AppLink>
       </div>
     </div>
   );
