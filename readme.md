@@ -6,6 +6,7 @@ Such as
 - typescript
 - react 17 
 - scss 
+- localization with i18n
 
 ### Architecture 
 This project uses Feature-Sliced Design 

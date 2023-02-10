@@ -6,17 +6,20 @@ import { AppRouter } from "app/providers/router";
 
 import "./styles/index.scss";
 import { Sidebar } from "widget/Sidebar";
+import { Suspense } from "react";
 
 export const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <div className={classNames("app", {}, [theme])}>
-      <Navbar />
-      <div className="content-page">
-        <Sidebar />
-        <AppRouter />
-      </div>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
     </div>
   );
 };
