@@ -7,7 +7,8 @@ Such as
 - react 17 
 - scss 
 - localization with i18n
-- check code style with eslint
+- check code style with eslint / stylelint
+- jest
 
 ### Architecture 
 This project uses Feature-Sliced Design 
