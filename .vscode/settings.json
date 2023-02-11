@@ -1,9 +1,8 @@
 {
-    "i18n-ally.localesPaths": [
-        "public/locales",
-        "src/shared/config/i18n"
-    ],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    }
+  "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.validate": ["css", "scss"]
 }
