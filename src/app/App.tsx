@@ -1,11 +1,11 @@
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { Navbar } from 'widget/Navbar';
+import { Navbar } from 'widgets/Navbar';
 import { AppRouter } from 'app/providers/router';
 
 import './styles/index.scss';
-import { Sidebar } from 'widget/Sidebar';
+import { Sidebar } from 'widgets/Sidebar';
 import { Suspense } from 'react';
 
 export function App() {
