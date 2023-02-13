@@ -8,7 +8,8 @@ Such as
 - scss 
 - localization with i18n
 - check code style with eslint / stylelint
-- jest
+- BundleAnalyzer
+- unit-tests using jest
 
 ### Architecture 
 This project uses Feature-Sliced Design 
