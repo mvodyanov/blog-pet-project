@@ -20,6 +20,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
     return (
         <div
+            data-testid="sidebar"
             className={classNames(
                 Style.Sidebar,
                 { [Style.collapsed]: collapsed },
@@ -28,7 +29,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 ],
             )}
         >
-            <Button onClick={onToggle}>{t('Переключить')}</Button>
+            <Button
+                data-testid="sidebar-toggle"
+                onClick={onToggle}
+            >
+                {t('Переключить')}
+
+            </Button>
             <div className={Style.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher />

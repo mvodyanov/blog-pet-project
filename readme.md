@@ -9,7 +9,7 @@ Such as
 - localization with i18n
 - check code style with eslint / stylelint
 - BundleAnalyzer
-- unit-tests using jest
+- unit-tests using jest / react-testing-library
 
 ### Architecture 
 This project uses Feature-Sliced Design 
