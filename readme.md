@@ -10,9 +10,10 @@ Such as
 - check code style with eslint / stylelint
 - BundleAnalyzer
 - unit-tests using jest / react-testing-library
+- Storybook
 
 ### Architecture 
-This project uses Feature-Sliced Design 
+This project uses [Feature-Sliced Design](https://feature-sliced.design/ru/)
 
 ### Requirements
 Node.js - 17.4.0
