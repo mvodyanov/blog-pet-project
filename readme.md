@@ -9,11 +9,15 @@ Such as
 - localization with i18n
 - check code style with eslint / stylelint
 - BundleAnalyzer
-- unit-tests using jest / react-testing-library
 - Storybook
 
 ### Architecture 
 This project uses [Feature-Sliced Design](https://feature-sliced.design/ru/)
+
+### Testing
+- Jest
+- react-testing-library
+- Loki screenshot testing
 
 ### Requirements
 Node.js - 17.4.0
