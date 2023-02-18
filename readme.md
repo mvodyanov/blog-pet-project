@@ -18,6 +18,7 @@ This project uses [Feature-Sliced Design](https://feature-sliced.design/ru/)
 - Jest
 - react-testing-library
 - Loki screenshot testing
+CI (github actions) 
 
 ### Requirements
 Node.js - 17.4.0
