@@ -12,7 +12,8 @@ export default {
     },
 } as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: ComponentStory<typeof MainPage> = (args:any) => <MainPage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
