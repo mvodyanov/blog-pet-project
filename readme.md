@@ -16,8 +16,10 @@ This project uses [Feature-Sliced Design](https://feature-sliced.design/ru/)
 
 ### Testing
 - Jest
-- react-testing-library
-- Loki screenshot testing
+- [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Loki](https://loki.js.org/) screenshot testing
+- Generating beautiful reports with [reg-cli](https://github.com/reg-viz/reg-cli)
+
 CI (github actions) 
 
 ### Requirements
