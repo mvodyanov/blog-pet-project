@@ -1,13 +1,13 @@
 # About 
 This template project contains a lot of different modern frontend technologies. 
 Such as 
-- webpack 5 (config)
-- webpackdev server
-- typescript
-- react 17 
+- webpack 5 (own custom config)
+- Typescript
+- React 17 +
+- Redux Toolkit
 - scss 
-- localization with i18n
-- check code style with eslint / stylelint
+- i18n
+- eslint / stylelint
 - BundleAnalyzer
 - Storybook
 
