@@ -10,6 +10,12 @@ export default ({ config }: {config: webpack.Configuration}) => {
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
+    const plugins = [
+        new webpack.DefinePlugin({
+            __IS_DEV__: true,
+        }),
+    ];
+
     config.resolve?.modules?.push(paths.src);
     config.resolve?.extensions?.push('.ts', '.tsx');
 
@@ -27,6 +33,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
         use: ['@svgr/webpack'],
     });
     config.module?.rules?.push(buildCssLoader(true));
+
+    config.plugins?.push(...plugins);
 
     return config;
 };
