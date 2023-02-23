@@ -7,11 +7,8 @@ Such as
 - Redux Toolkit
 - scss 
 - i18n
-- eslint / stylelint
-- BundleAnalyzer
-- Storybook
 - JSON server
-
+- Storybook
 ### Architecture 
 This project uses [Feature-Sliced Design](https://feature-sliced.design/ru/)
 
@@ -23,6 +20,11 @@ This project uses [Feature-Sliced Design](https://feature-sliced.design/ru/)
 
 CI (github actions) 
 
+### Code quality
+- eslint
+- stylelint
+- Husky
+- BundleAnalyzer
 ### Requirements
 Node.js - 17.4.0
 npm  - 8.5.1
