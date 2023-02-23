@@ -10,6 +10,7 @@ Such as
 - eslint / stylelint
 - BundleAnalyzer
 - Storybook
+- JSON server
 
 ### Architecture 
 This project uses [Feature-Sliced Design](https://feature-sliced.design/ru/)
