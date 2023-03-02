@@ -5,21 +5,33 @@ import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { FormEvent, memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { ReducersList, useAsyncReducers } from 'shared/lib/hooks/useAsyncReducers';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+
 import cls from './LoginForm.module.scss';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 
 export interface LoginFormProps {
   className?: string;
 }
+const initialReducers: ReducersList = {
+    loginForm: loginReducer,
+};
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const {
-        username, password, error, isLoading,
-    } = useSelector(getLoginState);
+    useAsyncReducers({
+        reducers: initialReducers,
+    });
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const isLoading = useSelector(getLoginIsLoading);
+    const error = useSelector(getLoginError);
 
     const onChangeUsername = useCallback(
         (value: string) => {
@@ -82,4 +94,4 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     );
 });
 
-export default LoginForm
+export default LoginForm;
