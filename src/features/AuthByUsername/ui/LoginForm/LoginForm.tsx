@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FormEvent, memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ReducersList, useAsyncReducers } from 'shared/lib/hooks/useAsyncReducers';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -17,14 +18,15 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void
 }
 const initialReducers: ReducersList = {
     loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     useAsyncReducers({
         reducers: initialReducers,
     });
@@ -48,11 +50,14 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     );
 
     const onFormSubmit = useCallback(
-        (event: FormEvent) => {
+        async (event: FormEvent) => {
             event.preventDefault();
-            dispatch(loginByUsername({ username, password }));
+            const result = await dispatch(loginByUsername({ username, password }));
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess();
+            }
         },
-        [dispatch, password, username],
+        [dispatch, password, username, onSuccess],
     );
 
     return (
