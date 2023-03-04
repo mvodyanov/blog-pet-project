@@ -13,6 +13,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
     const plugins = [
         new webpack.DefinePlugin({
             __IS_DEV__: true,
+            __API__: true,
         }),
     ];
 
