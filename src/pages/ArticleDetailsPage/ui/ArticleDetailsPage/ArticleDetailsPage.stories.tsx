@@ -52,9 +52,7 @@ const article: Article = {
 };
 
 export const Normal = Template.bind({});
-Normal.args = {
-    id: '1',
-};
+Normal.args = {};
 Normal.decorators = [StoreDecorator({
     articleDetails: {
         data: article,
