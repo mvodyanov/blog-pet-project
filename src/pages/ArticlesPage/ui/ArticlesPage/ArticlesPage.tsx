@@ -7,6 +7,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { ArticleViewSelector } from 'entities/Article/ui/ArticleViewSelector/ArticleViewSelector';
 import { ReducersList, useAsyncReducers } from 'shared/lib/hooks/useAsyncReducers';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { Page } from 'shared/ui/Page/Page';
 import {
     getArticlesPageView, getArticlesPageError, getArticlesPageIsLoading,
 } from '../../model/selectors/articlesPageSelectors';
@@ -32,19 +34,28 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
 
     const view = useSelector(getArticlesPageView);
-    const error = useSelector(getArticlesPageError);
+    // const error = useSelector(getArticlesPageError);
 
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(fetchArticlesList());
         dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({
+            page: 1,
+        }));
     });
-    console.info(articles);
+
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     return (
-        <div className={classNames(cls.ArticlesPage, {}, [className])}>
+        <Page
+            onScrollEnd={onLoadNextPart}
+            className={classNames(cls.ArticlesPage, {}, [className])}
+        >
             <ArticleViewSelector view={view} onViewClick={onChangeView} />
 
             <ArticleList
@@ -52,7 +63,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 view={view}
                 articles={articles}
             />
-        </div>
+        </Page>
     );
 };
 
