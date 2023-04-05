@@ -40,7 +40,6 @@ const articleDetailsCommentsSlice = createSlice({
                 action: PayloadAction<Comment[]>,
             ) => {
                 state.isLoading = false;
-                console.info(action.payload);
                 commentsAdapter.setAll(state, action.payload);
             })
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {

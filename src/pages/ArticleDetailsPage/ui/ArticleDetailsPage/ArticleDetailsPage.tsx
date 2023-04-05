@@ -11,9 +11,10 @@ import {
     ReducersList,
     useAsyncReducers,
 } from 'shared/lib/hooks/useAsyncReducers';
-import { AddCommentForm } from 'entities/addCommentForm';
+import { AddCommentForm } from 'features/addCommentForm';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -45,9 +46,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         navigate(RoutePath.articles);
     }, [navigate]);
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -59,24 +63,22 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 {t('Статья не найдена')}
-            </div>
+            </Page>
         );
     }
 
     return (
-        <>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
-                <ArticleDetails id={id} />
-                <Text className={cls.commentTitle} title={t('Комментарии')} />
-                <AddCommentForm onSendComment={onSendComment} />
-                <CommentList isLoading={commentsIsLoading} comments={comments} />
-            </div>
-        </>
+        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                {t('Назад к списку')}
+            </Button>
+            <ArticleDetails id={id} />
+            <Text className={cls.commentTitle} title={t('Комментарии')} />
+            <AddCommentForm onSendComment={onSendComment} />
+            <CommentList isLoading={commentsIsLoading} comments={comments} />
+        </Page>
     );
 };
 

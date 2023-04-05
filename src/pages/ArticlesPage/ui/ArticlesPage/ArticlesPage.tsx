@@ -26,6 +26,7 @@ const reducers: ReducersList = {
 const ArticlesPage = (props: ArticlesPageProps) => {
     useAsyncReducers({
         reducers,
+        removeAfterUnmount: false,
     });
     const { className } = props;
     const { t } = useTranslation();

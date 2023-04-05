@@ -5,7 +5,7 @@ import { profileReducer } from 'entities/Profile';
 import { articleDetailsReducer } from 'entities/Article';
 import { ReducersList } from 'shared/lib/hooks/useAsyncReducers';
 import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
-import { addCommentFormReducer } from 'entities/addCommentForm/model/slices/addCommentFormSlice';
+import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
