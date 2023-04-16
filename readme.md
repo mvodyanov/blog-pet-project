@@ -22,6 +22,7 @@ CI (github actions)
 
 ### Code quality
 - eslint
+- own custom FSD check plugin [eslint-plugin-relative-path-fsd-checker](https://www.npmjs.com/package/eslint-plugin-relative-path-fsd-checker)
 - stylelint
 - Husky
 - BundleAnalyzer

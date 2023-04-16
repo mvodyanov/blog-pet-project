@@ -12,7 +12,7 @@ import {
     profileReducer,
     ValidateProfileError,
 } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
@@ -24,6 +24,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { VStack } from 'shared/ui/Stack';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducersList = {
@@ -118,30 +120,34 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     );
 
     return (
-        <div className={classNames('', {}, [className])}>
-            <ProfilePageHeader />
-            {validateErrors?.length && validateErrors.map((err) => (
-                <Text
-                    key={err}
-                    theme={TextTheme.ERROR}
-                    text={validateErrorTranslates[err]}
+        <Page className={classNames('', {}, [className])}>
+            <VStack gap="16" max>
+                <ProfilePageHeader />
+
+                {validateErrors?.length
+          && validateErrors.map((err) => (
+              <Text
+                  key={err}
+                  theme={TextTheme.ERROR}
+                  text={validateErrorTranslates[err]}
+              />
+          ))}
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    readonly={readonly}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
-            ))}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                readonly={readonly}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-            />
-        </div>
+            </VStack>
+        </Page>
     );
 };
 
