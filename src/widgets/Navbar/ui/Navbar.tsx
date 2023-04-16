@@ -8,6 +8,8 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -36,20 +38,26 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <div className={cls.links}>
-                    <AppLink
-                        to={RoutePath.article_create}
-                        theme={AppLinkTheme.SECONDARY}
-                        className={cls.createBtn}
-                    >
-                        {t('Создать статью')}
-                    </AppLink>
-                    {' '}
-                    <Button
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                        onClick={onLogout}
-                    >
-                        {t('Выйти')}
-                    </Button>
+                    <Dropdown
+                        direction="bottom left"
+                        className={cls.dropdown}
+                        items={[
+                            {
+                                content: t('Профиль'),
+                                href: RoutePath.profile + authData.id,
+                            },
+                            {
+                                content: t('Создать статью'),
+                                href: RoutePath.article_create,
+                            },
+
+                            {
+                                content: t('Выйти'),
+                                onClick: onLogout,
+                            },
+                        ]}
+                        trigger={<Avatar size={30} src={authData.avatar} />}
+                    />
                 </div>
             </header>
         );
