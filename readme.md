@@ -26,6 +26,7 @@ CI (github actions)
 - stylelint
 - Husky
 - BundleAnalyzer
+- Automating the creation of FSD slices using the `generate:fsd features testFeature` command
 ### Requirements
 Node.js - 17.4.0
 npm  - 8.5.1
