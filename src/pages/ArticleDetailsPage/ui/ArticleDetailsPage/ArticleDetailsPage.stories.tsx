@@ -1,13 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Article, ArticleDetails } from 'entities/Article';
+import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetails,
+    title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
+    component: ArticleDetailsPage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
