@@ -7362,10 +7362,10 @@ eslint-plugin-react@^7.28.0, eslint-plugin-react@^7.29.2:
     semver "^6.3.0"
     string.prototype.matchall "^4.0.8"
 
-eslint-plugin-relative-path-fsd-checker@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-relative-path-fsd-checker/-/eslint-plugin-relative-path-fsd-checker-0.0.2.tgz#bd579c3853129b97feb8cb3337eb3b9d70a98351"
-  integrity sha512-aurVKO8cPAd8QrGekEv0/1BxX7u+5aYNeNwcfJvvn45Bgj/8R2V1FT5zaGiA1QuXl9fJaDG8+oi/mEJXZIx6ng==
+eslint-plugin-relative-path-fsd-checker@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-relative-path-fsd-checker/-/eslint-plugin-relative-path-fsd-checker-0.0.6.tgz#cddd35068c8e4bd4c42eeb72ca3792a061ecd451"
+  integrity sha512-Zmf+xxYhI5/q8TrUrhqxYEICwhuTv5inepYQ/f8HJYSYIK2FnP7+fd5LrELbdFbzJnIsF6LDVRBFGQpV/cRi4g==
   dependencies:
     requireindex "^1.2.0"
 
